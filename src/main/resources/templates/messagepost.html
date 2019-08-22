@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+<h2>Your Posts List</h2>
+        <br />
+        <img src="http://cdn.osxdaily.com/wp-content/uploads/2018/05/signal-icon.jpg">
+<p><a class="btn btn-primary btn-lg" href="/add" role="button">
+    Add new post</a></p>
+    <br />
+<table data-toggle="table" class="table table-hover" id="table">
+    <tr>
+        <th >Post Id</th>
+        <th>Content</th>
+        <th>Posted Date</th>
+        <th>Sent By</th>
+    </tr>
+    <tr th:each ="messagepost:${messageposts}">
+        <td th:text="${messagepost.id}"></td>
+        <td th:text="${messagepost.content}"></td>
+        <td th:text="${messagepost.posteddate}"></td>
+        <td th:text="${messagepost.sentby}"></td>
+        <td th:if="${messagepost.pic} !=null">
+            <img th:src="${messagepost.pic}"></td>
+
+
+        <td>
+            <a th:href="@{/update/{id}(id=${messagepost.id})}"> Update</a> -
+            <a th:href="@{/detail/{id}(id=${messagepost.id})}"> Details</a> -
+            <a th:href="@{/delete/{id}(id=${messagepost.id})}"> Delete</a>
+        </td>
+</tr>
+</table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
