@@ -78,11 +78,12 @@
                     <h2 th:text="${messagepost.sentby}"></h2>
                     <h3 th:text="${messagepost.posteddate}" ></h3>
                     <div th:if="${messagepost.pic} !=null">
-                        <img th:src="${messagepost.pic}"  height="200" width="200"></div>
+                        <img th:src="${messagepost.pic}"  height="200" width="200">
                     <p th:text="${messagepost.content}"></p>
                     <a th:href="@{/update/{id}(id=${messagepost.id})}"> Update</a>
                     <a th:href="@{/detail/{id}(id=${messagepost.id})}"> Details</a>
-                    <a th:href="@{/delete/{id}(id=${messagepost.id})}"> Delete</a>
+                        <a th:href="@{/delete/{id}(id=${messagepost.id})}"> Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
